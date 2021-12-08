@@ -21,4 +21,7 @@ jobs:
       run: docker run -d  go-web-helloworld:0.0.1
 
     - name: Get HTTP response from the App
-      run: curl -I http://127.0.0.1
+      run: env
+
+    - name: Login ECR
+      run: aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 873827770697.dkr.ecr.eu-central-1.amazonaws.com
